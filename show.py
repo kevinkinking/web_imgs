@@ -27,8 +27,9 @@ for line in lines:
     cv2.namedWindow("show",0);
     cv2.resizeWindow("show", 1280, 960);
     cv2.imshow('show', img_cv)
+    save_path = save_dir + line.split('/')[-1] + '.jpg'
+    print save_path
+    cv2.imwrite(save_path, img_cv)
     val = cv2.waitKey(0)
     if val == 27:
         break
-    save_path = save_dir + line + '.jpg'
-    cv2.imwrite(save_path, img_cv)
