@@ -7,6 +7,7 @@ import os
 http_adress = 'http://pic06.babytreeimg.com/'
 imgs_path = 'imgs_path.txt'
 save_dir = 'imgs/'
+save_img_ext = '.jpg'
 
 lines = []
 with open(imgs_path, 'r') as f:
@@ -14,7 +15,7 @@ with open(imgs_path, 'r') as f:
 saved_imgs = os.listdir(save_dir)
 for line in lines:
     line = line.rstrip('\n')
-    img_name = line.split('/')[-1] + '.jpg'
+    img_name = line.split('/')[-1] + save_img_ext
     if img_name in saved_imgs:
         img_cv = cv2.imread(save_dir + img_name)
     else:
